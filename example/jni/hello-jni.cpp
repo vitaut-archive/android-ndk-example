@@ -24,9 +24,10 @@
  *
  *   apps/samples/hello-jni/project/src/com/example/hellojni/HelloJni.java
  */
-jstring
-Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv* env,
-                                                  jobject thiz )
+ 
+extern "C" {
+
+JNIEXPORT jstring JNICALL Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv * env, jobject obj )
 {
 #if defined(__arm__)
   #if defined(__ARM_ARCH_7A__)
@@ -49,4 +50,6 @@ Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv* env,
     std::string hello = fmt::format("Hello from JNI !  Compiled with ABI {}!", ABI);  // uses Python-like format string syntax
 
     return env->NewStringUTF(hello.c_str());
+}
+
 }

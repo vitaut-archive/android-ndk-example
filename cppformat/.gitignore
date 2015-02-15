@@ -1,0 +1,17 @@
+/_CPack_Packages
+/doc/conf.py
+/doc/doxyxml
+/doc/html
+/Testing
+/*-test
+/install_manifest.txt
+/tinyformat_speed_test
+*~
+*.a
+*.zip
+cmake_install.cmake
+CPack*Config.cmake
+CTestTestfile.cmake
+CMakeCache.txt
+CMakeFiles
+Makefile

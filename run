@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ANDROID_NDK=
+ANDROID_SDK=
+
+PATH=$PATH:$ANDROID_NDK:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
+cd example
+ndk-build
+android update project --name android-ndk-example --path . --target android-21
+ant debug
+emulator -avd Nexus_5_API_21_x86
+# adb install bin/android-ndk-example-debug.apk

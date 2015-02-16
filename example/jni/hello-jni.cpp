@@ -29,27 +29,9 @@ extern "C" {
 
 JNIEXPORT jstring JNICALL Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv * env, jobject obj )
 {
-#if defined(__arm__)
-  #if defined(__ARM_ARCH_7A__)
-    #if defined(__ARM_NEON__)
-      #define ABI "armeabi-v7a/NEON"
-    #else
-      #define ABI "armeabi-v7a"
-    #endif
-  #else
-   #define ABI "armeabi"
-  #endif
-#elif defined(__i386__)
-   #define ABI "x86"
-#elif defined(__mips__)
-   #define ABI "mips"
-#else
-   #define ABI "unknown"
-#endif
-
-    std::string hello = fmt::format("Hello from JNI !  Compiled with ABI {}!", ABI);  // uses Python-like format string syntax
-
-    return env->NewStringUTF(hello.c_str());
+  std::string hello = fmt::format(
+    "Hello from C++ Format! GCC version: {}.{}", __GNUC__, __GNUC_MINOR__);
+  return env->NewStringUTF(hello.c_str());
 }
 
 }

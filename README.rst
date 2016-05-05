@@ -1,5 +1,5 @@
-Using C++ Format with Android NDK
-=================================
+Using fmt with Android NDK
+==========================
 
 Building the example::
 
